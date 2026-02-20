@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario de reserva</h1>
+    <form action="procesa.php" onsubmit="return validarFormulario()" >
+        <p>
+            <label for="nombre">Nombre y apellidos:</label>
+            <input type="text" id="nombre" name="nombre">
+        </p>
+
+        <p>
+            <label for="dias">Días de alojamiento</label>
+            <input type="number" id="dias" name="dias">
+        </p>
+
+        <p>
+            <label for="fuma">Fumador</label>
+            <input type="checkbox" id="fuma" name="fuma">
+        </p>
+
+        <p>
+            <label for="fecha">Fecha de alojamiento</label>
+            <input type="date" id="fecha" name="fecha">
+        </p>
+
+        <input type="submit" value="Reservar">
+
+    </form>
+
+    <script>
+        function validarFormulario(){
+            let nombre = document.getElementById("nombre").value;
+            if (nombre.length < 10){
+                alert("El nombre y apellidos tiene que tener al menos 10 caracteres");
+                return false;
+            }
+
+            let dias = document.getElementById("dias").value;
+            if (dias <3){
+                alert("Los días de alojamiento no pueden ser menos de 3");
+                return false;
+            }
+
+            let fuma = document.getElementById("fuma").checked;
+            if (fuma == true){
+                alert("No se admiten fumadores");
+                return false;
+            }
+
+            let fecha = document.getElementById("fecha").value;
+            if (fecha){
+                alert ("")
+                return false;
+            }
+
+            
+            alert("Formulario correcto");
+            return true;
+
+        }
+    </script>
+</body>
+</html>
