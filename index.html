@@ -37,12 +37,14 @@
             let nombre = document.getElementById("nombre").value;
             if (nombre.length < 10){
                 alert("El nombre y apellidos tiene que tener al menos 10 caracteres");
+                document.getElementById("nombre").focus();
                 return false;
             }
 
             let dias = document.getElementById("dias").value;
             if (dias <3){
                 alert("Los días de alojamiento no pueden ser menos de 3");
+                document.getElementById("dias").focus();
                 return false;
             }
 
@@ -53,8 +55,9 @@
             }
 
             let fecha = document.getElementById("fecha").value;
-            if (fecha){
-                alert ("")
+            if (fecha < "2026-02-20"){
+                alert ("La fecha de alojamiento no puede ser anterior al 20 de febrero de 2026");
+                document.getElementById("fecha").focus();
                 return false;
             }
 
