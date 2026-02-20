@@ -55,13 +55,16 @@
             }
 
             let fecha = document.getElementById("fecha").value;
-            if (fecha < "2026-02-20"){
-                alert ("La fecha de alojamiento no puede ser anterior al 20 de febrero de 2026");
+            let hoy = new Date();
+            alert(hoy);
+            let fechaDate = new Date(fecha);
+
+            if (fechaDate < hoy) {
+                alert("La fecha de alojamiento no puede ser anterior a hoy");
                 document.getElementById("fecha").focus();
                 return false;
             }
 
-            
             alert("Formulario correcto");
             return true;
 
