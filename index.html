@@ -50,7 +50,7 @@
             if (nombre.length < 10){
                 document.getElementById("aviso-nombre").innerHTML = 
                 "El nombre y apellidos tiene que tener al menos 10 caracteres";
-                document.getElementById("aviso-nombre").focus();
+                document.getElementById("nombre").focus();
                 return false;
             }
 
@@ -58,7 +58,7 @@
             if (Number (dias) <3){
                 document.getElementById("aviso-dias").innerHTML = 
                 "Los días de alojamiento no pueden ser menos de 3";
-                document.getElementById("aviso-dias").focus();
+                document.getElementById("dias").focus();
                 return false;
             }
 
