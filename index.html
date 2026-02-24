@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .aviso {
+            color: red;
+            font-size: .5em;
+        }
+    </style>
 </head>
 <body>
     <h1>Formulario de reserva</h1>
@@ -11,11 +17,13 @@
         <p>
             <label for="nombre">Nombre y apellidos:</label>
             <input type="text" id="nombre" name="nombre">
+            <p id="aviso-nombre" class="aviso"></p>
         </p>
 
         <p>
             <label for="dias">Días de alojamiento</label>
             <input type="number" id="dias" name="dias">
+            <p id="aviso-dias" class="aviso"></p>
         </p>
 
         <p>
@@ -34,17 +42,23 @@
 
     <script>
         function validarFormulario(){
+            //****** RESETEAMOS LOS AVISOS*****
+            document.getElementById("aviso-nombre").innerHTML = "";
+            document.getElementById("aviso-dias").innerHTML = "";
+
             let nombre = document.getElementById("nombre").value;
             if (nombre.length < 10){
-                alert("El nombre y apellidos tiene que tener al menos 10 caracteres");
-                document.getElementById("nombre").focus();
+                document.getElementById("aviso-nombre").innerHTML = 
+                "El nombre y apellidos tiene que tener al menos 10 caracteres";
+                document.getElementById("aviso-nombre").focus();
                 return false;
             }
 
             let dias = document.getElementById("dias").value;
-            if (dias <3){
-                alert("Los días de alojamiento no pueden ser menos de 3");
-                document.getElementById("dias").focus();
+            if (Number (dias) <3){
+                document.getElementById("aviso-dias").innerHTML = 
+                "Los días de alojamiento no pueden ser menos de 3";
+                document.getElementById("aviso-dias").focus();
                 return false;
             }
 
